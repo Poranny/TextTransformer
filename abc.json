@@ -1,0 +1,125 @@
+{
+  "system_aukcyjny": {
+    "wprowadzenie": "Specyfikacja wymagań funkcjonalnych w ramach informatyzacji procesu sprzedaży produktów w oparciu o mechanizm aukcyjny.",
+    "procesy_biznesowe": {
+      "sprzedaz_aukcyjna": {
+        "aktorzy": ["Sprzedający", "Kupujący"],
+        "opis": "Proces biznesowy opisujący sprzedaż za pomocą mechanizmu aukcyjnego.",
+        "scenariusz_glowny": [
+          {
+            "krok": 1,
+            "opis": "[Sprzedający](#ac1) wystawia produkt na aukcję.",
+            "przypadek_uzycia": "[UC1](#uc1)"
+          },
+          {
+            "krok": 2,
+            "opis": "[Kupujący](#ac2) oferuje kwotę za produkt wyższą od aktualnie najwyższej oferty.",
+            "przypadek_uzycia": "[BR1](#br1)"
+          },
+          {
+            "krok": 3,
+            "opis": "[Kupujący](#ac2) wygrywa aukcję.",
+            "przypadek_uzycia": "[BR2](#br2)"
+          },
+          {
+            "krok": 4,
+            "opis": "[Kupujący](#ac2) przekazuje należność Sprzedającemu."
+          },
+          {
+            "krok": 5,
+            "opis": "[Sprzedający](#ac1) przekazuje produkt Kupującemu."
+          }
+        ],
+        "scenariusze_alternatywne": [
+          {
+            "krok": "2.A",
+            "opis": "Oferta Kupującego została przebita, a [Kupujący](#ac2) pragnie przebić aktualnie najwyższą ofertę.",
+            "przypadek_uzycia": "[UC1](#uc1)"
+          },
+          {
+            "krok": "3.A",
+            "opis": "Czas aukcji upłynął i [Kupujący](#ac2) przegrał aukcję.",
+            "przypadek_uzycia": "[BR2](#br2)"
+          }
+        ]
+      }
+    },
+    "aktorzy": {
+      "sprzedajacy": {
+        "id": "ac1",
+        "opis": "Osoba oferująca towar na aukcji."
+      },
+      "kupujacy": {
+        "id": "ac2",
+        "opis": "Osoba chcąca zakupić produkt na aukcji."
+      }
+    },
+    "przypadki_uzycia": {
+      "sprzedaz_aukcyjna_uc1": {
+        "aktorzy": ["Sprzedający"],
+        "scenariusz_glowny": [
+          {
+            "krok": 1,
+            "opis": "[Sprzedający](#ac1) zgłasza do systemu chęć wystawienia produktu na aukcję."
+          },
+          {
+            "krok": 2,
+            "opis": "System prosi o podanie danych produktu i ceny wywoławczej."
+          },
+          {
+            "krok": 3,
+            "opis": "[Sprzedający](#ac1) podaje dane produktu oraz cenę wywoławczą."
+          },
+          {
+            "krok": 4,
+            "opis": "System weryfikuje poprawność danych."
+          },
+          {
+            "krok": 5,
+            "opis": "System informuje o pomyślnym wystawieniu produktu na aukcję."
+          }
+        ],
+        "scenariusze_alternatywne": [
+          {
+            "krok": "4.A",
+            "opis": "Podano niepoprawne lub niekompletne dane produktu.",
+            "dodatkowe_kroki": [
+              "System informuje o błędnie podanych danych.",
+              "Przejdź do kroku 2."
+            ]
+          }
+        ]
+      },
+      "sprzedaz_aukcyjna_uc2": {
+        "aktorzy": ["Sprzedający", "Kupujący"],
+        "scenariusz_glowny": [
+          {
+            "krok": 1,
+            "opis": "..."
+          }
+        ],
+        "scenariusze_alternatywne": [
+          {
+            "krok": "1.A",
+            "opis": "...",
+            "dodatkowe_kroki": [
+              "..."
+            ]
+          }
+        ]
+      }
+    },
+    "obiekty_biznesowe": {
+      "aukcja": "Aukcja jest formą zawierania transakcji kupna-sprzedaży.",
+      "produkt": "Fizyczny lub cyfrowy obiekt, który ma zostać sprzedany w ramach aukcji."
+    },
+    "reguly_biznesowe": {
+      "zlozenie_oferty": "Złożenie oferty wymaga zaproponowania kwoty wyższej niż aktualnie oferowana o minimum 1,00 PLN.",
+      "rozstrzygniecie_aukcji": "Aukcję wygrywa ten z [Kupujący](#ac2)ch, który w momencie jej zakończenia (upłynięcia czasu) złożył najwyższą ofertę."
+    },
+    "macierz_crudl": {
+      "sprzedaz_aukcyjna_uc1": ["C", "C", "R", "U", "D", "L"],
+      "sprzedaz_aukcyjna_uc2": ["C", "R", "U", "D", "L"]
+    }
+  }
+}
