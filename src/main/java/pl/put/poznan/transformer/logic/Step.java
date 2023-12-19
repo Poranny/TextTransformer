@@ -15,8 +15,6 @@ public class Step {
         this.description = description;
     }
 
-
-
     public String getAction() {
         return action;
     }

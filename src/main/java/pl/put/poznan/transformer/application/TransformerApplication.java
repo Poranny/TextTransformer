@@ -2,9 +2,11 @@ package pl.put.poznan.transformer.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
 import pl.put.poznan.transformer.logic.ScenarioAnalyzer;
 
 @SpringBootApplication
+@ComponentScan(basePackages = "pl.put.poznan.transformer")
 public class TransformerApplication {
 
     public static void main(String[] args) {

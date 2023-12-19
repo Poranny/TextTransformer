@@ -7,7 +7,7 @@ import pl.put.poznan.transformer.logic.Scenario;
 import pl.put.poznan.transformer.logic.ScenarioAnalyzer;
 
 @RestController
-@RequestMapping("/api/tools")
+@RequestMapping("/api")
 public class TransformerController {
 
     @Autowired
@@ -18,6 +18,11 @@ public class TransformerController {
 
         String result = scenarioAnalyzer.analyzeScenarioFromFile(filePath);
         return ResponseEntity.ok (result);
+    }
+
+    @GetMapping("/hello")
+    public String helloWorld() {
+        return "Hello, World!";
     }
 
     @PostMapping("/runFunction")

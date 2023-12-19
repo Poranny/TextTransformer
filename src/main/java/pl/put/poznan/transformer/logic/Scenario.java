@@ -1,4 +1,5 @@
 package pl.put.poznan.transformer.logic;
+
 import java.util.List;
 // Scenario.java
 public class Scenario {

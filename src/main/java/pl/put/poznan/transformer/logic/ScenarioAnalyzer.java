@@ -40,7 +40,6 @@ public class ScenarioAnalyzer {
 
     public String analyzeScenario(String scenarioJson) {
         try {
-
             JsonNode scenarioNode = objectMapper.readTree(scenarioJson);
 
             // Pobieranie nazwy scenariusza
@@ -49,7 +48,9 @@ public class ScenarioAnalyzer {
 
             // Tutaj możesz dodać logikę analizy scenariusza na podstawie pobranych danych
             return "Wyniki analizy scenariusza: " + scenarioName;
-        } catch (Exception e) {
+        }
+
+        catch (Exception e) {
             // Obsługa ewentualnych błędów parsowania JSON
             return "Błąd analizy scenariusza: " + e.getMessage();
         }
@@ -109,10 +110,14 @@ public class ScenarioAnalyzer {
 
                 while (fieldNames.hasNext()) {
                     String fieldName = fieldNames.next();
+
                     System.out.println("Node Name: " + fieldName);
+
                     nodesToProcess.add(currentNode.get(fieldName));
                 }
-            } else if (currentNode.isArray()) {
+            }
+
+            else if (currentNode.isArray()) {
                 Iterator<JsonNode> elements = currentNode.elements();
 
                 while (elements.hasNext()) {
